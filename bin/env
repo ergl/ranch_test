@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+if [[ -z "${TCP_PORT}" ]]; then
+  export TCP_PORT=7878
+fi
+
+if [[ -z "${INSTANCE_NAME}" ]]; then
+  export INSTANCE_NAME=ranch_test
+fi
+
+if [ -z "$IP" ]; then
+  export IP=127.0.0.1
+fi
+
+if [ -z "$NODE_NAME" ]; then
+  export NODE_NAME=${INSTANCE_NAME}@${IP}
+fi
+
+if [ -z "$COOKIE" ]; then
+  export COOKIE=ranch_test
+fi
+
+RELNAME="`dirname \"$0\"`"/${INSTANCE_NAME}
+exec ${RELNAME} "$@"
