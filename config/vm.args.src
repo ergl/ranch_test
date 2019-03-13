@@ -32,3 +32,5 @@
 ## Pin to CPU cores, spread over hardware threads across NUMA nodes
 ## If not supported, use the default unbound behavior
 +stbt tnnps
+
+-ranch_test tcp_port ${TCP_PORT}

@@ -23,6 +23,9 @@ run: rel
 ping:
 	./_build/default/rel/ranch_test/bin/env ping
 
+attach:
+	./_build/default/rel/ranch_test/bin/env attach
+
 stop:
 	./_build/default/rel/ranch_test/bin/env stop
 

@@ -15,12 +15,13 @@
 %%====================================================================
 
 start(_StartType, _StartArgs) ->
-    ranch_test_sup:start_link().
+    case ranch_test_sup:start_link() of
+        {error, Reason} ->
+            {error, Reason};
+        {ok, Pid} ->
+            ok = tcp_server:start_listeners(),
+            {ok, Pid}
+    end.
 
-%%--------------------------------------------------------------------
 stop(_State) ->
     ok.
-
-%%====================================================================
-%% Internal functions
-%%====================================================================
